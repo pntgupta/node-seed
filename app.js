@@ -14,7 +14,7 @@ const ApplicationError = require('./errors/ApplicationError');
 
 const scriptName = path.basename(__filename);
 
-logger.info(scriptName, envConfig.logger.level)
+logger.info(scriptName, envConfig.logger.level);
 
 class Server {
   constructor() {
@@ -90,10 +90,8 @@ class Server {
         .createServer(options, this.app)
         .listen(this.port, () => this._onServerStart());
     } else {
-      this.app.server = this.app.listen(
-        this.port,
-        this.ip,
-        () => this._onServerStart()
+      this.app.server = this.app.listen(this.port, this.ip, () =>
+        this._onServerStart()
       );
     }
   }

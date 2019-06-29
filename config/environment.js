@@ -14,7 +14,7 @@ class EnvironmentConfig {
         }
       },
       features: {
-        https: this._fetchFeaturesFromEnv('IS_HTTPS'),
+        https: this._fetchFeaturesFromEnv('IS_HTTPS')
       },
       logger: {
         level: this._fetchFromEnv('LOGGER_LEVEL')
