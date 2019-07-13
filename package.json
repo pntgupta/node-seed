@@ -27,7 +27,7 @@
     "monit": "pm2 monit",
     "status": "pm2 status",
     "plus": "pm2 plus",
-    "debug": "yarn env && node --inspect:127.0.0.1:9228 app.js"
+    "debug": ". ./envConfig.sh && nodemon --inspect=127.0.0.1:9228 app.js"
   },
   "husky": {
     "hooks": {
