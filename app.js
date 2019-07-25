@@ -11,6 +11,7 @@ const httpUtils = require('./utils/httpUtils');
 const envConfig = require('./config/environment');
 const globalConstants = require('./constants/globalConstants');
 const ApplicationError = require('./errors/ApplicationError');
+const crons = require('./crons');
 
 const scriptName = path.basename(__filename);
 
@@ -26,6 +27,7 @@ class Server {
     this._attachRouteHandlers();
     this._attachErrorHandlers();
     this._startServer();
+    this._startCrons();
   }
 
   _attachPreMiddlewares() {
@@ -112,6 +114,10 @@ class Server {
       `Process ${process.pid} listening on: ${this.ip}:${this.port}`,
       { env: envConfig.env }
     );
+  }
+
+  _startCrons() {
+    crons.initCrons();
   }
 }
 
